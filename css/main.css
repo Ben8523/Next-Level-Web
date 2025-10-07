@@ -1,0 +1,304 @@
+﻿/* בסיס */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    transition: background 0.4s, color 0.4s;
+}
+
+    /* --- LIGHT THEME --- */
+    body.light-theme {
+        background: #f5f5f5;
+        color: #222;
+    }
+
+    /* --- DARK THEME --- */
+    body.dark-theme {
+        background: #121212;
+        color: #f0f0f0;
+    }
+
+/* Header */
+.site-header {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* לוגו */
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Light */
+body.light-theme .site-header {
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    color: white;
+}
+
+body.light-theme .logo-placeholder {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Dark */
+body.dark-theme .site-header {
+    background: #1e1e1e;
+    color: #00d4ff;
+}
+
+body.dark-theme .logo-placeholder {
+    background: rgba(0,212,255,0.2);
+}
+
+/* כותרת */
+.site-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+body.light-theme .hero {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+body.dark-theme .hero {
+    background: linear-gradient(135deg, #1a1a1a, #262626);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+body.light-theme .hero-title {
+    color: #0d47a1;
+}
+
+body.dark-theme .hero-title {
+    color: #00d4ff;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Social Buttons Container */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 450px) {
+    .social-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+        .social-buttons .btn {
+            justify-content: center;
+            width: 100%;
+        }
+}
+
+/* Base Button */
+.social-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+    .social-buttons .btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+/* WhatsApp */
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+    .btn-whatsapp:hover {
+        background-color: forestgreen;
+    }
+
+/* Instagram */
+.btn-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: white;
+}
+
+    .btn-instagram:hover {
+        opacity: 0.75;
+    }
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+body.light-theme .btn-primary {
+    background: #1976d2;
+    color: white;
+}
+
+    body.light-theme .btn-primary:hover {
+        background: #0d47a1;
+    }
+
+body.dark-theme .btn-primary {
+    background: #00d4ff;
+    color: #121212;
+}
+
+    body.dark-theme .btn-primary:hover {
+        background: #00aacc;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+    }
+
+/* Form Section */
+.contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+body.light-theme .contact {
+    background: #f9f9f9;
+}
+
+body.dark-theme .contact {
+    background: #1a1a1a;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: 0.3s;
+        outline: none;
+        direction: rtl;
+        border: 1px solid #444;
+    }
+
+body.light-theme .contact-form input {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #222;
+}
+
+body.dark-theme .contact-form input {
+    background: #262626;
+    color: #f0f0f0;
+    border: 1px solid #444;
+}
+
+.contact-form input:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+.contact-form button {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+body.light-theme .contact-form button {
+    background: #1976d2;
+    color: white;
+}
+
+body.dark-theme .contact-form button {
+    background: #00d4ff;
+    color: #121212;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+body.light-theme .site-footer {
+    background: #222;
+    color: white;
+}
+
+body.dark-theme .site-footer {
+    background: #1e1e1e;
+    color: #aaa;
+}
+
+/* Toggle Button */
+.theme-toggle {
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: none;
+    background: #ddd;
+}
+
+body.dark-theme .theme-toggle {
+    background: #333;
+    color: #fff;
+}
