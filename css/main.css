@@ -5,68 +5,110 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --card-bg: #1e1e1e;
+    --accent-color: #00b0ff;
+}
+
+/* מצב בהיר */
+body.light-theme {
+    --bg-color: #f5f5f5;
+    --text-color: #222;
+    --card-bg: #ffffff;
+    --accent-color: #1976d2;
+}
+
+/* הגדרות כלליות */
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    transition: background 0.4s, color 0.4s;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.4s ease, color 0.4s ease;
 }
-
-    /* --- LIGHT THEME --- */
-    body.light-theme {
-        background: #f5f5f5;
-        color: #222;
-    }
-
-    /* --- DARK THEME --- */
-    body.dark-theme {
-        background: #121212;
-        color: #f0f0f0;
-    }
 
 /* Header */
 .site-header {
-    padding: 1rem 2rem;
+    background: var(--card-bg);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* לוגו */
-.logo-placeholder {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+/* לוגו וטקסט */
+.header-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 12px;
+    gap: 1rem;
 }
 
-/* Light */
-body.light-theme .site-header {
-    background: linear-gradient(135deg, #0d47a1, #1976d2);
-    color: white;
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 
-body.light-theme .logo-placeholder {
-    background: rgba(255,255,255,0.2);
-}
-
-/* Dark */
-body.dark-theme .site-header {
-    background: #1e1e1e;
-    color: #00d4ff;
-}
-
-body.dark-theme .logo-placeholder {
-    background: rgba(0,212,255,0.2);
-}
-
-/* כותרת */
 .site-title {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+    font-size: 24px;
+    color: var(--accent-color);
 }
+
+/* ===== ניווט ===== */
+.nav {
+    display: flex;
+    gap: 64px;
+}
+
+    .nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1.05rem;
+        transition: 0.3s;
+    }
+
+        .nav a:hover {
+            color: var(--accent-color);
+        }
+
+/* כפתור לשנות מצב כהה או בהיר */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--accent-color);
+    border-radius: 25px;
+    color: var(--accent-color);
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .theme-toggle:hover {
+        background: var(--accent-color);
+        color: var(--card-bg);
+    }
+
+/* שיהיה מותאם גם לטלפון */
+@media (max-width: 700px) {
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.7rem;
+    }
+
+    .header-left {
+        justify-content: center;
+    }
+
+    .nav {
+        gap: 32px;
+    }
+}
+
 
 /* Hero */
 .hero {

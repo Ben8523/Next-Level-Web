@@ -5,16 +5,10 @@ if (!btn) {
     console.warn('theme-toggle button not found');
 }
 else {
-    var saved = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var initial = saved ? saved : (prefersDark ? 'dark' : 'light');
 
-    // מנקים קלאסים קודמים ומוסיפים את הקלאס הנכון
-    body.classList.remove('light-theme', 'dark-theme');
-    body.classList.add(initial + '-theme');
-
-    // מעדכנים את הטקסט/האייקון בכפתור לפי המצב
-    btn.textContent = (initial === 'dark') ? '☀️' : '🌙';
+    // מאתחלים את האתר למצב דארק כי זה נראה יותר טוב לדעתי
+    body.classList.add('dark-theme');
+    btn.textContent =  '☀️';
 
     // מאזינים ללחיצה על הכפתור – מחליפים מצב
     btn.addEventListener('click', function () {
@@ -24,11 +18,7 @@ else {
         body.classList.toggle('dark-theme', !nowDark); // הופך ל-dark אם היינו ב-light
         body.classList.toggle('light-theme', nowDark); // הופך ל-light אם היינו ב-dark
 
-        // שומרים את ההעדפה כדי שתיזכר בריענון הבא
-        var mode = body.classList.contains('dark-theme') ? 'dark' : 'light';
-        localStorage.setItem('theme', mode);
-
         // מעדכנים אייקון בכפתור
-        btn.textContent = (mode === 'dark') ? '☀️' : '🌙';
+        btn.textContent = (nowDark) ? '🌙' : '☀️';
     });
 }
